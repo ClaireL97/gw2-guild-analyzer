@@ -1,0 +1,23 @@
+<section class="errors">
+  <ul>
+    <% @user.errors.full_messages.each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+</section>
+ <div>
+    <div">
+      <%= form_for [@user] do |f| %>
+        <%= f.label "Username" %>
+        <%= f.text_field :username%> </br>
+        <%= f.label "Guild Wars 2 character id" %>
+        <%= f.text_field :gw2_character_id %></br>
+        <%= f.label "Email" %>
+        <%= f.email_field :email %></br>
+        <%= f.label "Password" %>
+        <%= f.password_field :password_digest %></br>
+        <%= f.submit %>
+        <%= flash[:notice] %>
+      <% end %>
+    </div>
+  </div>
