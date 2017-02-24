@@ -1,3 +1,11 @@
+<section class="errors">
+  <ul>
+    <% @user.errors.full_messages.each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+</section>
+
 <div">
   <%= form_for @guild do |f| %>
     <%= f.label "Name" %>
