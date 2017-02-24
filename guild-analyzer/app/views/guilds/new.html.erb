@@ -1,0 +1,12 @@
+<div">
+  <%= form_for @guild do |f| %>
+    <%= f.label "Name" %>
+    <%= f.text_field :name%> </br>
+    <%= f.label "Server" %>
+    <%= f.text_field :server %></br>
+    <%= f.label "WvW Playstyle" %>
+    <%= f.text_field :wvw_playstyle %></br>
+    <%= f.submit %>
+    <%= flash[:notice] %>
+  <% end %>
+</div>
