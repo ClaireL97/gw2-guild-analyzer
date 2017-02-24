@@ -1,0 +1,12 @@
+<div >
+  <div>
+    <%= flash[:notice] %>
+    <%= form_for :login,  url: {action: "create"} do |f| %>
+      <%= f.label "Email" %>
+      <%= f.email_field :email %></br>
+      <%= f.label "Password" %>
+      <%= f.password_field :password_digest %></br>
+      <%= f.submit %>
+    <% end %>
+  </div>
+</div>
