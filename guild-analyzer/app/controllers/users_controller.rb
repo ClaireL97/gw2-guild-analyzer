@@ -10,7 +10,7 @@ class UsersController < ApplicationController
     @user.password = user_params[:password_digest]
       if @user.save
         session_login @user
-        redirect_to new_user_path
+        redirect_to root_path
       else
         @user.errors.full_messages
         render :new
