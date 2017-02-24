@@ -22,3 +22,4 @@ module SessionsConcern
   def session_login user
     session[:current_user_id] = user.id
   end
+end
