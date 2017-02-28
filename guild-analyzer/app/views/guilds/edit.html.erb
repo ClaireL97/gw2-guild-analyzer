@@ -1,3 +1,4 @@
+<% if session_logged_in?%>
 <section class="errors">
   <ul>
     <% @user.errors.full_messages.each do |error| %>
@@ -20,3 +21,4 @@
     <%= flash[:notice] %>
   <% end %>
 </div>
+<% end %>
