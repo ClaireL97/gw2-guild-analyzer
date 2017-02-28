@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :users
+  resources :users, :guilds
   resources :login, :only => [:create, :new, :destroy]
 
   root 'guilds#index'
