@@ -1,3 +1,6 @@
+require 'rest-client'
+require 'json'
+
 class GuildsController < ApplicationController
 
   def new
@@ -6,7 +9,12 @@ class GuildsController < ApplicationController
   end
 
   def create
-    @guild = Guild.new
+    @guild = Guild.new(guild_params)
+    console.log(@guild)
+    url = "https://api.guildwars2.com/v1/guild_details.json?guild_name=#{@guild.name}"
+    response = RestClient.get(url)
+    api_response = JSON.parse(response)
+
 
     if @guild.save
       redirect_to root_path
@@ -26,6 +34,9 @@ class GuildsController < ApplicationController
   def show
   end
 
-private
+  private
+  def guild_params
+    params.require(:guild).permit(:name, :server, :wvw_playstyle, :average_member_count, :guild_tag)
+  end
 
 end
