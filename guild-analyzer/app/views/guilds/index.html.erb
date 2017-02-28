@@ -4,7 +4,6 @@
 	<% if session_logged_in?%>
 		<% Guilds.all.each do |guild| %>
 		<%= guild.name %>
-		<%= guild.guild_tag %>
 		<% end %>
 
 	<% end %> 

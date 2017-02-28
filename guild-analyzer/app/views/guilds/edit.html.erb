@@ -1,0 +1,22 @@
+<section class="errors">
+  <ul>
+    <% @user.errors.full_messages.each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+</section>
+
+<div">
+  <%= form_for @guild do |f| %>
+    <%= "Guild Name #{@guild.name}" %> </br>
+    <%= "Guild Tag #{@guild.guild_tag}" %></br>
+    <%= f.label "Server" %>
+    <%= f.text_field :server %></br>
+    <%= f.label "WvW Playstyle" %>
+    <%= f.text_field :wvw_playstyle %></br>
+    <%= f.label "Average Numbers" %>
+    <%= f.text_field :average_member_count %></br>
+    <%= f.submit %>
+    <%= flash[:notice] %>
+  <% end %>
+</div>

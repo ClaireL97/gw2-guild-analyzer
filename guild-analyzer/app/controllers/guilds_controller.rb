@@ -15,7 +15,7 @@ class GuildsController < ApplicationController
     response = RestClient.get(url)
     api_response = JSON.parse(response)
     @guild.guild_tag = api_response.tag
-
+    
     if @guild.save
       redirect_to root_path
     else
