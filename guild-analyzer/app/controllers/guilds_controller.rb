@@ -16,7 +16,6 @@ class GuildsController < ApplicationController
     api_response = JSON.parse(response)
     @guild.guild_tag = api_response.tag
 
-
     if @guild.save
       redirect_to root_path
     else
@@ -29,7 +28,16 @@ class GuildsController < ApplicationController
   def destroy
   end
 
+  def edit
+    @guild = Guild.find(params[:id])
+    p @guild
+    render :edit
+  end
+
   def udpate
+    @guild = Guild.find(params[:id])
+    p @guild
+  
   end
 
   def show
