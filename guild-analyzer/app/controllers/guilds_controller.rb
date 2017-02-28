@@ -14,6 +14,7 @@ class GuildsController < ApplicationController
     url = "https://api.guildwars2.com/v1/guild_details.json?guild_name=#{@guild.name}"
     response = RestClient.get(url)
     api_response = JSON.parse(response)
+    @guild.guild_tag = api_response.tag
 
 
     if @guild.save
