@@ -49,7 +49,7 @@ class GuildsController < ApplicationController
 
   def update
     @guild = Guild.find(params[:id])
-    if @guild.save
+    if @guild.update(guild_params)
       render :show
     else
       @guild.errors.full_messages

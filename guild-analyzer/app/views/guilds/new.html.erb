@@ -6,8 +6,8 @@
     <% end %>
   </ul>
 </section>
-
 <div">
+  <%= flash[:notice] %>
   <%= form_for @guild do |f| %>
     <%= f.label "Name" %>
     <%= f.text_field :name%> </br>
@@ -18,6 +18,5 @@
     <%= f.label "Average Numbers" %>
     <%= f.text_field :average_member_count %></br>
     <%= f.submit %>
-    <%= flash[:notice] %>
   <% end %>
 </div>
