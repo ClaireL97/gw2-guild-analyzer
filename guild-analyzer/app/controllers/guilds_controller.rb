@@ -10,12 +10,12 @@ class GuildsController < ApplicationController
 
   def create
     @guild = Guild.new(guild_params)
-    console.log(@guild)
+    p @guild.name
     url = "https://api.guildwars2.com/v1/guild_details.json?guild_name=#{@guild.name}"
     response = RestClient.get(url)
     api_response = JSON.parse(response)
-    @guild.guild_tag = api_response.tag
-    
+    @guild.guild_tag = api_response["tag"]
+
     if @guild.save
       redirect_to root_path
     else
@@ -37,7 +37,7 @@ class GuildsController < ApplicationController
   def udpate
     @guild = Guild.find(params[:id])
     p @guild
-  
+
   end
 
   def show

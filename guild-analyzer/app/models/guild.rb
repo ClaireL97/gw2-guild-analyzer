@@ -1,4 +1,4 @@
 class Guild < ApplicationRecord
-
-  validates :name, :server, presence: true, uniqueness: true
+  validates :server, presence: true
+  validates :name, presence: true, uniqueness: true
 end

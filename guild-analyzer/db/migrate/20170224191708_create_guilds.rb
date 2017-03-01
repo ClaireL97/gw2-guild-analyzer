@@ -6,7 +6,6 @@ class CreateGuilds < ActiveRecord::Migration[5.0]
       t.string :wvw_playstyle
       t.integer :average_member_count
       t.string :guild_tag #finding via API
-
       t.timestamps
     end
   end

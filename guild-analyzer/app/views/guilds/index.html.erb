@@ -1,10 +1,8 @@
-<h2>"You must be signed in to see this page"</h2>
+
 
 <div>
 	<% if session_logged_in?%>
-		<% Guilds.all.each do |guild| %>
-		<%= guild.name %>
-		<% end %>
-
-	<% end %> 
+  <% else %>
+    <h2>"You must be signed in to see this page"</h2>
+	<% end %>
 </div>
