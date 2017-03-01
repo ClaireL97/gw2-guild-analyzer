@@ -15,13 +15,18 @@ class GuildsController < ApplicationController
 
   def create
     @guild = Guild.new(guild_params)
-    p @guild.name
     url = "https://api.guildwars2.com/v1/guild_details.json?guild_name=#{@guild.name}"
-    response = RestClient.get(url)
-    api_response = JSON.parse(response)
-    @guild.guild_tag = api_response["tag"]
+    begin
+      response = RestClient.get(url)
+    rescue RestClient::BadRequest
+      flash[:notice] = "Guild Name Can't Be Found"
+      response = nil
+    end
 
-    if @guild.save
+    if response != nil
+      api_response = JSON.parse(response)
+      @guild.guild_tag = api_response["tag"]
+      @guild.save
       redirect_to root_path
     else
       @guild.errors.full_messages
