@@ -19,17 +19,20 @@ class GuildsController < ApplicationController
     begin
       response = RestClient.get(url)
     rescue RestClient::BadRequest
-      flash[:notice] = "Guild Name Can't Be Found"
       response = nil
     end
 
     if response != nil
       api_response = JSON.parse(response)
       @guild.guild_tag = api_response["tag"]
-      @guild.save
-      redirect_to root_path
+      if @guild.save
+        redirect_to root_path
+      else
+        @guild.errors.full_messages
+        render :new
+      end
     else
-      @guild.errors.full_messages
+      flash[:notice] = "Guild Name Can't Be Found"
       render :new
     end
 

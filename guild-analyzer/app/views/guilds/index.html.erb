@@ -1,5 +1,4 @@
 
-
 <div>
 	<% if session_logged_in?%>
     <%= link_to 'New Guild', new_guild_path %>
@@ -7,6 +6,6 @@
         <%= link_to "#{guild.name}[#{guild.guild_tag}]", guild_path(guild) %>
       <% end %>
   <% else %>
-    <h2>"You must be signed in to see this page"</h2>
+    put something here to fill the space that is seen when not logged in
 	<% end %>
 </div>
