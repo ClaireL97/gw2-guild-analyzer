@@ -4,7 +4,7 @@
 	<% if session_logged_in?%>
     <%= link_to 'New Guild', new_guild_path %>
       <% @guilds.each do |guild| %></br>
-        <%= guild.name %><%="[#{guild.guild_tag}]"%>
+        <%= link_to "#{guild.name}[#{guild.guild_tag}]", guild_path(guild) %>
       <% end %>
   <% else %>
     <h2>"You must be signed in to see this page"</h2>
