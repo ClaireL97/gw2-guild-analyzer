@@ -1,0 +1,11 @@
+
+<div>
+	<% if session_logged_in?%>
+    <%= link_to 'New Guild', new_guild_path %>
+      <% @guilds.each do |guild| %></br>
+        <%= link_to "#{guild.name}[#{guild.guild_tag}]", guild_path(guild) %>
+      <% end %>
+  <% else %>
+    put something here to fill the space that is seen when not logged in
+	<% end %>
+</div>

@@ -9,6 +9,21 @@
   </head>
 
   <body>
+  <nav>
+    <ul>
+      <li><%= link_to "Home", root_path %></li>
+      <% if session_logged_in? %>
+        <li><%= link_to "#{session_user.username}", user_path(session_user) %></li>
+        <li><%= link_to "Logout", login_path(session_user.id), :method => :delete %></li>
+      <% else %>
+        <li><%=link_to 'Register', new_user_path %></li>
+        <li><%=link_to 'Login', new_login_path %></li>
+      <% end %>
+    </ul>
+  </nav>
     <%= yield %>
+
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
   </body>
 </html>

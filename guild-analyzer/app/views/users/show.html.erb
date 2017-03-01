@@ -1,0 +1,5 @@
+<% if session_logged_in? %>
+  <h2><%= "#{session_user.username}'s Profile" %></h2>
+  <%= "Sign Up Date: #{(session_user.created_at).to_date.to_formatted_s(:long)}" %> </br>
+  <%= "Guild Wars 2 Account ID: #{session_user.gw2_character_id}" %>
+<% end %>
