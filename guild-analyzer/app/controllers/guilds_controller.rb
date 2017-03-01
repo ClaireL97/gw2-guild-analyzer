@@ -3,6 +3,12 @@ require 'json'
 
 class GuildsController < ApplicationController
 
+  def index
+    @guilds = Guild.all
+    p @guilds
+    render :index
+  end
+
   def new
     @guild  = Guild.new
     render :new
