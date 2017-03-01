@@ -45,7 +45,7 @@ class GuildsController < ApplicationController
   def update
     @guild = Guild.find(params[:id])
     if @guild.save
-      redirect_to root_path
+      render :show
     else
       @guild.errors.full_messages
       render :edit
