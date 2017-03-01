@@ -5,7 +5,6 @@ class GuildsController < ApplicationController
 
   def index
     @guilds = Guild.all
-    p @guilds
     render :index
   end
 
@@ -36,17 +35,22 @@ class GuildsController < ApplicationController
 
   def edit
     @guild = Guild.find(params[:id])
-    p @guild
     render :edit
   end
 
-  def udpate
+  def update
     @guild = Guild.find(params[:id])
-    p @guild
-
+    if @guild.save
+      redirect_to root_path
+    else
+      @guild.errors.full_messages
+      render :edit
+    end
   end
 
   def show
+    @guild = Guild.find(params[:id])
+
   end
 
   private
