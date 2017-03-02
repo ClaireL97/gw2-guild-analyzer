@@ -63,6 +63,7 @@ class GuildsController < ApplicationController
 
   def show
     @guild = Guild.find(params[:id])
+    p @guild.contacts
     render :show
   end
 

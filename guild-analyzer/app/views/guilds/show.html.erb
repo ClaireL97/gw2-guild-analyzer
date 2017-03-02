@@ -10,10 +10,12 @@
 <h3>Contacts</h3>
 
 <%= render "contacts/new" %>
-<% @guild.contacts.each do |details| %>
-  <%= details %>
-  <%= "Name: #{details.contact_alias} Rank: #{details.rank}" %>
-  <%= link_to 'Delete', guild_contact_path(:id), method: :delete %> </br>
+
+<% @guild.contacts.each do |contact| %>
+  <% if contact.id != nil %>
+    <%= "Name: #{contact.contact_alias} Rank: #{contact.rank}" %>
+    <%= link_to 'Delete', guild_contact_path(contact.guild_id, contact.id), method: :delete %> </br>
+  <% end %>
 <% end %>
 
 

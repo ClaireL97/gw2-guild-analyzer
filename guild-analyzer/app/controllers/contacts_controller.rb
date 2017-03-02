@@ -7,7 +7,7 @@ class ContactsController < ApplicationController
   end
 
    def destroy
-    @guild = Guild.find(params[:id])
+    @guild = Guild.find(params[:guild_id])
     @contact = @guild.contacts.find(params[:id])
     @contact.destroy
     redirect_to guild_path(@guild)
