@@ -8,12 +8,12 @@ class ContactsController < ApplicationController
 
    def destroy
     @guild = Guild.find(params[:id])
-    @contact = @guild.comments.find(params[:id])
+    @contact = @guild.contacts.find(params[:id])
     @contact.destroy
     redirect_to guild_path(@guild)
   end
 
- private
+
  def contact_params
     params.require(:contact).permit(:contact_alias, :rank)
   end

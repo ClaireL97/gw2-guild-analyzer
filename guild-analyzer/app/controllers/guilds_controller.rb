@@ -41,6 +41,7 @@ class GuildsController < ApplicationController
   def destroy
     @guild = Guild.find(params[:id])
     @guild.destroy
+     p @guild.contacts
 
     redirect_to root_path
   end
