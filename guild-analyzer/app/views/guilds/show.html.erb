@@ -6,4 +6,13 @@
 
 <%= link_to 'Edit', edit_guild_path %>
 <%= link_to 'Delete', guild_path(@guild), method: :delete %>
-<!-- a few contacts will go here -->
+
+<h3>Contacts</h3>
+
+<%= render "contacts/new" %>
+<% @guild.contacts.each do |details| %>
+  <%= details.contact_alias %>
+  <%= details.rank %>
+<% end %>
+
+

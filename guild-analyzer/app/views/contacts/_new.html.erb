@@ -1,0 +1,5 @@
+<%= form_for([@guild, @guild.contacts.build]) do |f| %>
+  <%= f.text_field :contact_alias, placeholder: "Contact Alias" %>
+  <%= f.text_field :rank, placeholder: "Rank in Guild", required: true %>
+  <input type="submit" value="Add Contact"/>
+<% end %>
