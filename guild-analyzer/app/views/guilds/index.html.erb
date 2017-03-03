@@ -3,11 +3,15 @@
 <h2>Guild List</h2>
 	<% if session_logged_in?%>
     <%= link_to 'Add a New Guild', new_guild_path %>
+    <ul class="list-group">
       <% @guilds.each do |guild| %></br>
-        <%= link_to "#{guild.name}[#{guild.guild_tag}]", guild_path(guild) %>
+      <li class="list-item">
+        <%= link_to "#{guild.name}[#{guild.guild_tag}]", guild_path(guild) , :class => 'guild-list' %>
+      </li>
       <% end %>
+    </ul>
   <% else %>
-    <p class="center">Please log in to see the content of this page</p>
+    <p class="center">This site is a way to store information on various guilds in the game guild wars 2. People input the information about the guild when they are logged in and can reference it later. In the future I plan to add more functionality to this and make it store more information as well as limiting who can make accounts.</p>
     <!-- Add a summary about what the purpose of the site is here -->
 	<% end %>
 </div>
