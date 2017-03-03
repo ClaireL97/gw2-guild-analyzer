@@ -1,12 +1,14 @@
-<%= @guild.name %>
-<%= @guild.guild_tag %>
-<%= @guild.server %>
-<%= @guild.wvw_playstyle %>
-<%= @guild.average_member_count %>
+<div class="col-md-offset-5">
+<h3>Guild Details</h2>
+  <%= "Name: #{@guild.name}" %> </br>
+  <%= "Guild Tag: #{@guild.guild_tag}" %></br>
+  <%= "Server: #{@guild.server} "%></br>
+  <%= "WvW Playstyle: #{@guild.wvw_playstyle}"%></br>
+  <%= "Average WvW Numbers: #{@guild.average_member_count}" %></br>
 
-<%= link_to 'Edit', edit_guild_path %>
-<%= link_to 'Delete', guild_path(@guild), method: :delete %>
-
+  <%= link_to 'Edit Info', edit_guild_path %> |
+  <%= link_to 'Delete', guild_path(@guild), method: :delete %>
+</div>
 
 <div class="center">
     <h4>Contacts</h4>

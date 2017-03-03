@@ -1,11 +1,13 @@
 
-<div>
+<div class="center">
+<h2>Guild List</h2>
 	<% if session_logged_in?%>
-    <%= link_to 'New Guild', new_guild_path %>
+    <%= link_to 'Add a New Guild', new_guild_path %>
       <% @guilds.each do |guild| %></br>
         <%= link_to "#{guild.name}[#{guild.guild_tag}]", guild_path(guild) %>
       <% end %>
   <% else %>
     <p class="center">Please log in to see the content of this page</p>
+    <!-- Add a summary about what the purpose of the site is here -->
 	<% end %>
 </div>

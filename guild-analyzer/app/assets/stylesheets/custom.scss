@@ -1,7 +1,7 @@
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
 
-$link: #000000;
+$link: black;
 
 a{
   color: $link;
@@ -20,4 +20,3 @@ html, body {
 .center {
   text-align: center;
 }
-
