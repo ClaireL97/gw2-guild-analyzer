@@ -1,6 +1,11 @@
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
 
+$link: #000000;
+
+a{
+  color: $link;
+}
 .navbar {
   width: 100%;
   background-color: #921616;
