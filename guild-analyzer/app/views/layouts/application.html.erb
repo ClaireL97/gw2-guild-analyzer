@@ -10,18 +10,21 @@
   </head>
 
   <body>
-  <nav>
-    <ul>
-      <li><%= link_to "Home", root_path %></li>
-      <% if session_logged_in? %>
-        <li><%= link_to "#{session_user.username}", user_path(session_user) %></li>
-        <li><%= link_to "Logout", login_path(session_user.id), :method => :delete %></li>
-      <% else %>
-        <li><%=link_to 'Register', new_user_path %></li>
-        <li><%=link_to 'Login', new_login_path %></li>
-      <% end %>
-    </ul>
+  <nav class="navbar navbar-static-top navbar-default" role= "navigation">
+    <div class="container">
+      <ul class="nav navbar-left">
+          <li><%= link_to "Home", root_path %></li>
+        <% if session_logged_in? %>
+          <li><%= link_to "#{session_user.username}", user_path(session_user) %></li>
+          <li><%= link_to "Logout", login_path(session_user.id), :method => :delete %></li>
+        <% else %>
+          <li><%=link_to 'Register', new_user_path %></li>
+          <li><%=link_to 'Login', new_login_path %></li>
+        <% end %>
+      </ul>
+    </div>
   </nav>
+    <h1 class= "center">Guild Wars 2 Guild Log</h1>
     <%= yield %>
 
 
