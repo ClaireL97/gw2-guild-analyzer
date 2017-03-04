@@ -6,17 +6,20 @@
     <% end %>
   </ul>
 </section>
-<div">
-  <%= flash[:notice] %>
-  <%= form_for @guild do |f| %>
-    <%= f.label "Name" %>
-    <%= f.text_field :name%> </br>
-    <%= f.label "Server" %>
-    <%= f.text_field :server %></br>
-    <%= f.label "WvW Playstyle" %>
-    <%= f.text_field :wvw_playstyle %></br>
-    <%= f.label "Average Numbers" %>
-    <%= f.text_field :average_member_count %></br>
-    <%= f.submit %>
-  <% end %>
+<div class="row">
+  <div class="col-md-5 col-md-offset-5">
+    <h3>New Guild</h3>
+      <%= flash[:notice] %>
+      <%= form_for @guild do |f| %>
+        <%= f.label "Name" %>
+        <%= f.text_field :name%> </br>
+        <%= f.label "Server" %>
+        <%= f.text_field :server %></br>
+        <%= f.label "WvW Playstyle" %>
+        <%= f.text_field :wvw_playstyle %></br>
+        <%= f.label "Average Numbers" %>
+        <%= f.text_field :average_member_count %></br>
+        <%= f.submit %>
+      <% end %>
+    </div>
 </div>

@@ -4,26 +4,29 @@
     <title>GuildAnalyzer</title>
     <%= csrf_meta_tags %>
 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-  <nav>
-    <ul>
-      <li><%= link_to "Home", root_path %></li>
-      <% if session_logged_in? %>
-        <li><%= link_to "#{session_user.username}", user_path(session_user) %></li>
-        <li><%= link_to "Logout", login_path(session_user.id), :method => :delete %></li>
-      <% else %>
-        <li><%=link_to 'Register', new_user_path %></li>
-        <li><%=link_to 'Login', new_login_path %></li>
-      <% end %>
-    </ul>
+  <nav class="navbar navbar-static-top navbar-default" role= "navigation">
+    <div class="container">
+      <ul class="nav navbar-left">
+          <li><%= link_to "Home", root_path %></li>
+        <% if session_logged_in? %>
+          <li><%= link_to "#{session_user.username}", user_path(session_user) %></li>
+          <li><%= link_to "Logout", login_path(session_user.id), :method => :delete %></li>
+        <% else %>
+          <li><%=link_to 'Register', new_user_path %></li>
+          <li><%=link_to 'Login', new_login_path %></li>
+        <% end %>
+      </ul>
+    </div>
   </nav>
+    <h1 class= "center">Guild Wars 2 Guild Log</h1>
     <%= yield %>
 
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
   </body>
 </html>

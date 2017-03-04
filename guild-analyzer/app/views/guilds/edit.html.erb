@@ -7,7 +7,8 @@
   </ul>
 </section>
 
-<div">
+<div class= "row">
+  <div class="col-md-3 col-md-offset-5">
   <%= form_for @guild, url: guild_path(@guild), method: :patch do |f| %>
     <%= "Guild Name: #{@guild.name}" %> </br>
     <%= "Guild Tag: #{@guild.guild_tag}" %></br>
@@ -20,5 +21,6 @@
     <%= f.submit %>
     <%= flash[:notice] %>
   <% end %>
+  </div>
 </div>
 <% end %>

@@ -1,0 +1,30 @@
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+
+$link: gray;
+
+a{
+  color: $link;
+  font-size: 15px;
+}
+.navbar {
+  width: 100%;
+  background-color: #921616;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  background-color: #d3d3d3;
+}
+
+.italic{
+  font-style:  italic;
+}
+.center {
+  text-align: center;
+}
+
+.guild-list {
+  font-family: Times;
+}

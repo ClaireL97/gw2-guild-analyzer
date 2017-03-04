@@ -1,21 +1,32 @@
-<%= @guild.name %>
-<%= @guild.guild_tag %>
-<%= @guild.server %>
-<%= @guild.wvw_playstyle %>
-<%= @guild.average_member_count %>
+<div class="col-md-offset-5">
+<h3>Guild Details</h2>
+  <%= "Name: #{@guild.name}" %> </br>
+  <%= "Guild Tag: #{@guild.guild_tag}" %></br>
+  <%= "Server: #{@guild.server} "%></br>
+  <%= "WvW Playstyle: #{@guild.wvw_playstyle}"%></br>
+  <%= "Average WvW Numbers: #{@guild.average_member_count}" %></br>
 
-<%= link_to 'Edit', edit_guild_path %>
-<%= link_to 'Delete', guild_path(@guild), method: :delete %>
+  <%= link_to 'Edit Info', edit_guild_path %> |
+  <%= link_to 'Delete', guild_path(@guild), method: :delete %>
+</div>
 
-<h3>Contacts</h3>
-
-<%= render "contacts/new" %>
-
-<% @guild.contacts.each do |contact| %>
-  <% if contact.id != nil %>
-    <%= "Name: #{contact.contact_alias} Rank: #{contact.rank}" %>
-    <%= link_to 'Delete', guild_contact_path(contact.guild_id, contact.id), method: :delete %> </br>
-  <% end %>
-<% end %>
-
-
+<div class="center">
+    <h4>Contacts</h4>
+    <%= render "contacts/new" %>
+    <div class="col-md-offset-5">
+    <table class="table-bordered">
+        <th>Name</th>
+        <th>Rank</th>
+        <th>Delete</th>
+      <% @guild.contacts.each do |contact| %>
+        <% if contact.id != nil %>
+        <tr>
+          <td><%= contact.contact_alias %></td>
+          <td><%= contact.rank %></td>
+          <td><%= link_to 'Delete', guild_contact_path(contact.guild_id, contact.id), method: :delete %> </td>
+        </tr>
+        <% end %>
+      <% end %>
+    </table>
+    </div>
+</div>
