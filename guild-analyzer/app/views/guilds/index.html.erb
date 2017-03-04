@@ -3,7 +3,7 @@
 <h2>Guild List</h2>
 	<% if session_logged_in?%>
     <%= link_to 'Add a New Guild', new_guild_path %></br></br>
-    <p class="italic">To see details on a guild click on the name of the guild you want to see</p>
+    <p class="italic" style="font-size: 18px">To see details on a guild click on the name of the guild you want to see</p>
     <ul class="list-group">
       <% @guilds.each do |guild| %></br>
       <li class="list-item">
